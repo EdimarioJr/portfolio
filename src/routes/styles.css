@@ -1,0 +1,55 @@
+:root {
+	--primary: rgba(253, 207, 0);
+	--secondary: #231f20;
+	--black: black;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	font-family: 'Poppins', sans-serif;
+	scroll-behavior: smooth;
+	position: relative;
+}
+
+a {
+	text-decoration: none;
+	color: var(--secondary);
+}
+
+.container {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.primary-background {
+	background-color: var(--primary);
+	position: relative;
+	z-index: 0;
+	width: 100%;
+}
+
+.primary-background::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	opacity: 0.1;
+	background-image: url('$lib/assets/padrao-bg.webp');
+	width: 100%;
+	background-size: cover;
+	background-repeat: repeat;
+}
+
+main {
+	height: 100%;
+}
