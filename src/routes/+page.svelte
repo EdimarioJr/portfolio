@@ -38,7 +38,7 @@
 		<section class="container presentation-container" transition:blur={options}>
 			<section class="presentation">
 				<img alt="logo" src={marca2} />
-				<h1>Oi, me chamo Edimário e eu sou um desenvolvedor front-end</h1>
+				<h1>Oi, me chamo Edimário e sou desenvolvedor front-end</h1>
 				<p>Tenho 3 anos de experiência com Javascript, React, Next.js e Angular</p>
 			</section>
 
