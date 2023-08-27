@@ -17,6 +17,6 @@
 	}
 
 	header img {
-		width: 80px;
+		width: 5rem;
 	}
 </style>

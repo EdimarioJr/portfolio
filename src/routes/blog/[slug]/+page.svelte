@@ -31,7 +31,7 @@
 		gap: 1rem;
 		min-height: 100%;
 		background-color: var(--secondary);
-		color: var(--primary);
+		color: white;
 	}
 
 	.article-container {
@@ -41,6 +41,7 @@
 
 	h1 {
 		font-size: 3rem;
+		color: var(--primary);
 	}
 
 	.post-content {
@@ -60,5 +61,15 @@
 		background-color: var(--secondary);
 		color: var(--primary);
 		border-top: 2px solid var(--primary);
+	}
+
+	@media (max-width: 470px) {
+		h1 {
+			font-size: 2rem;
+		}
+
+		.post-content {
+			font-size: 1rem;
+		}
 	}
 </style>

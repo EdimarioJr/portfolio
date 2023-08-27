@@ -1,6 +1,7 @@
 ---
 title: Introdução a refs no react
 date: '2023-08-21'
+slug: 'react-refs'
 ---
 
 O useRef é um hook do react que recebe um initialValue como argumento e retorna uma referência, que é um objeto com uma propriedade current.

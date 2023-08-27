@@ -7,7 +7,7 @@
 		background-color: var(--primary);
 		display: grid;
 		place-items: center;
-		padding: 30px 0;
+		padding: 1.8rem 0;
 		border-top: 2px solid var(--black);
 	}
 </style>

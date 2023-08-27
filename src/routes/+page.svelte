@@ -1,19 +1,31 @@
-<script>
+<script lang="ts">
 	import marca2 from '$lib/assets/marcas total-02.png';
 	import triviaImage from '$lib/assets/trivia-app.png';
-	import resume from '$lib/assets/edimario-curriculo-ast.pdf';
 	import Footer from '$lib/components/footer.svelte';
+	import LocaleSwitcher from '$lib/components/localeSwitcher.svelte';
 	import Icon from '@iconify/svelte';
 	import { linear } from 'svelte/easing';
+	import { locale } from '$lib/i18n/translations';
 
 	import { blur } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 
 	export let data;
 	let options = { duration: 1000, easing: linear };
 
 	let ready = false;
 	onMount(() => (ready = true));
+
+	async function getPosts() {
+		if (browser) {
+			const response = await fetch('/api/posts');
+			const posts = await response.json();
+			data.posts = posts || [];
+		}
+	}
+
+	$: $locale, getPosts();
 </script>
 
 <svelte:head>
@@ -26,20 +38,15 @@
 		<section class="container presentation-container" transition:blur={options}>
 			<section class="presentation">
 				<img alt="logo" src={marca2} />
-				<h1>
-					Oi, me chamo Edimário e eu sou um desenvolvedor front-end com 3 anos de experiência.
-				</h1>
-				<p>Trabalho com Javascript, React, Next.js, Angular</p>
-				<p>e algumas outras tecnologias.</p>
+				<h1>Oi, me chamo Edimário e eu sou um desenvolvedor front-end</h1>
+				<p>Tenho 3 anos de experiência com Javascript, React, Next.js e Angular</p>
 			</section>
 
 			<nav class="links">
 				<a target="_blank" href="https://github.com/EdimarioJr"
 					><Icon icon="mdi:github" style="width: 2rem; height: 2rem;" /></a
 				>
-				<!-- <a target="_blank" type="download" href={resume}
-					><Icon icon="mdi:file" style="width: 2rem; height: 2rem;" /></a
-				> -->
+
 				<a target="_blank" href="https://www.linkedin.com/in/edimário-silva-moura-júnior-3a88561a5/"
 					><Icon icon="mdi:linkedin" style="width: 2rem; height: 2rem;" /></a
 				>
@@ -89,12 +96,16 @@
 	<section class="container">
 		<h2>Blog</h2>
 		<div class="blog-list">
-			{#each data.posts || [] as blogPost}
-				<div class="blog-article">
-					<p>{blogPost.meta.date}</p>
-					<a href={blogPost.path}>{blogPost.meta.title}</a>
-				</div>
-			{/each}
+			{#if data.posts.length}
+				{#each data.posts || [] as blogPost}
+					<div class="blog-article">
+						<p>{blogPost.meta.date}</p>
+						<a href={blogPost.path}>{blogPost.meta.title}</a>
+					</div>
+				{/each}
+			{:else}
+				<h1>Não tem blogs</h1>
+			{/if}
 		</div>
 	</section>
 </section>
@@ -123,21 +134,20 @@
 	}
 
 	.presentation img {
-		width: 500px;
+		width: 31rem;
 		margin-bottom: 5rem;
-		margin-top: 30px;
 	}
 
 	.presentation h1 {
 		font-weight: 700;
-		font-size: 40px;
+		font-size: 2.5rem;
 		text-align: center;
-		margin-bottom: 30px;
+		margin-bottom: 2rem;
 	}
 
 	.presentation p {
 		font-weight: 500;
-		font-size: 25px;
+		font-size: 1.5rem;
 	}
 
 	.links {
@@ -149,7 +159,7 @@
 	}
 
 	.links a {
-		font-size: 20px;
+		font-size: 1.2rem;
 	}
 
 	.projects-list {
@@ -157,19 +167,19 @@
 	}
 
 	.projects {
-		padding-top: 50px;
+		padding-top: 3rem;
 	}
 
 	.projects-card {
 		display: grid;
 		width: 100%;
 		grid-template-columns: 1fr 1fr;
-		grid-gap: 30px;
-		margin-bottom: 70px;
+		grid-gap: 2rem;
+		margin-bottom: 4rem;
 	}
 	.projects-card img {
 		width: 100%;
-		height: 330px;
+		height: auto;
 	}
 
 	article p {
@@ -177,14 +187,14 @@
 	}
 
 	article h3 {
-		margin-bottom: 20px;
+		margin-bottom: 1.3rem;
 	}
 
 	.sitelink,
 	.codigolink {
-		padding: 10px 20px;
+		padding: 0.7rem 1.2rem;
 		border: 1px solid var(--black);
-		margin-right: 20px;
+		margin-right: 1.2rem;
 		box-shadow: 5px 5px var(--black);
 		font-weight: 500;
 		cursor: pointer;
@@ -220,11 +230,15 @@
 
 	@media (max-width: 470px) {
 		.presentation-section {
-			padding: 30px 0;
+			padding: 2rem 0;
 		}
 
 		.presentation-section h1 {
 			font-size: 2rem;
+		}
+
+		.presentation p {
+			font-size: 1.2rem;
 		}
 
 		.container {
@@ -232,19 +246,19 @@
 		}
 
 		.presentation img {
-			width: 350px;
+			width: 90%;
+			height: auto;
 		}
 
 		.links {
 			display: flex;
-
 			align-items: center;
 			justify-content: center;
 		}
 
 		.links a {
-			margin: 10px 0;
-			font-size: 16px;
+			margin: 0.8rem 0;
+			font-size: 1rem;
 		}
 
 		.presentation {
@@ -253,12 +267,20 @@
 
 		.projects-card {
 			grid-template-columns: 1fr;
-			grid-template-rows: repeat(2, 1fr);
+		}
+
+		.projects-card article a {
+			display: block;
+			margin-bottom: 1rem;
 		}
 
 		article p {
 			height: auto;
-			margin-bottom: 40px;
+			margin-bottom: 2.2rem;
+		}
+
+		.blog-article {
+			gap: 2rem;
 		}
 	}
 
@@ -270,7 +292,7 @@
 
 		article p {
 			height: auto;
-			margin-bottom: 40px;
+			margin-bottom: 2.1rem;
 		}
 	}
 </style>
