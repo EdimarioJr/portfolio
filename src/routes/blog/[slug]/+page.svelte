@@ -11,7 +11,7 @@
 
 <section class="primary-background page">
 	<Header />
-	<article class=" article-container">
+	<article class="article-container">
 		<section class="container">
 			<h1>{data.title}</h1>
 			<p>Publicado: {data.date}</p>

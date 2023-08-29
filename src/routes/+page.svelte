@@ -39,18 +39,18 @@
 			<section class="presentation">
 				<img alt="logo" src={marca2} />
 				<h1>Oi, me chamo Edimário e sou desenvolvedor front-end</h1>
-				<p>Tenho 3 anos de experiência com Javascript, React, Next.js e Angular</p>
+				<p>Tenho 3 anos de experiência com Javascript, React, Next.js e Angular.</p>
 			</section>
 
 			<nav class="links">
-				<a target="_blank" href="https://github.com/EdimarioJr"
+				<a href="https://github.com/EdimarioJr"
 					><Icon icon="mdi:github" style="width: 2rem; height: 2rem;" /></a
 				>
 
-				<a target="_blank" href="https://www.linkedin.com/in/edimário-silva-moura-júnior-3a88561a5/"
+				<a href="https://www.linkedin.com/in/edimário-silva-moura-júnior-3a88561a5/"
 					><Icon icon="mdi:linkedin" style="width: 2rem; height: 2rem;" /></a
 				>
-				<a target="_blank" href="mailto:edimariojunior.14@gmail.com"
+				<a href="mailto:edimariojunior.14@gmail.com"
 					><Icon icon="mdi:gmail" style="width: 2rem; height: 2rem;" /></a
 				>
 			</nav>
@@ -74,17 +74,10 @@
 						<strong>HTML</strong>. Nesse app, o usuário passa por 10 questões aleatórias em inglês,
 						e ao final o resultado é mostrado.
 					</p>
-					<a
-						rel="external"
-						class="codigolink"
-						target="_blank"
-						href="https://github.com/EdimarioJr/trivia-app">Ver o código</a
+					<a rel="external" class="codigolink" href="https://github.com/EdimarioJr/trivia-app"
+						>Ver o código</a
 					>
-					<a
-						rel="external"
-						class="sitelink"
-						target="_blank"
-						href="https://trivia-app-inky.vercel.app">Ver o site</a
+					<a rel="external" class="sitelink" href="https://trivia-app-inky.vercel.app">Ver o site</a
 					>
 				</article>
 			</div>
