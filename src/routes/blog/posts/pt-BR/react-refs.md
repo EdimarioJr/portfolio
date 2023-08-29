@@ -95,9 +95,6 @@ No exemplo acima, estamos dando focus no input assim que o componente é renderi
 
 Podemos acessar o value do input com o ref por que os elementos de form do HTML tem um diferencial: Eles tem estado interno próprio. Por isso que não precisamos setar o value dele em nenhum momento, só pegar. Essa abordagem tem essa vantagem de performance e simplicidade, porém fica mais difícil monitorar mudanças nesse estado para aplicar validações, por exemplo. A título de curiosidade, essa abordagem é usada pela lib [React hook form](https://www.react-hook-form.com).
 
-Os refs são a maneira correta de manipular elementos no DOM de maneira IMPERATIVA, mas lembre-se que o React por natureza é DECLARATIVO. Ou seja, devemos sempre tentar
-resolver o problema através do estado e declarando o que acontece quando ele muda.
-
 ### Typescript
 
 No typescript sempre devemos declarar o tipo do elemento que queremos manipular. Isso vai evitar reclamações do TS e o Intellisense vai fornecer todos os
