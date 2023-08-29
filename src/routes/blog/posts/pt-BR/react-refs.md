@@ -1,6 +1,6 @@
 ---
 title: Introdução a refs no react
-date: '2023-08-21'
+date: '21-08-2023'
 slug: 'react-refs'
 ---
 
@@ -91,7 +91,7 @@ function InputFocus() {
 }
 ```
 
-No exemplo acima, estamos dando focus no input assim que o componente é renderizado pela primeira vez. Perceba que acessamos a api do input através do useRef. Você também pode usar essa mesma ref para pegar o valor atual do input, fazendo inputRef.current.value.
+No exemplo acima, estamos dando focus no input assim que o componente é renderizado pela primeira vez. Perceba que acessamos a api do input através do useRef. Você também pode usar a mesma ref para pegar o valor atual do input, acessando inputRef.current.value.
 
 Podemos acessar o value do input com o ref por que os elementos de form do HTML tem um diferencial: Eles tem estado interno próprio. Por isso que não precisamos setar o value dele em nenhum momento, só pegar. Essa abordagem tem essa vantagem de performance e simplicidade, porém fica mais difícil monitorar mudanças nesse estado para aplicar validações, por exemplo. A título de curiosidade, essa abordagem é usada pela lib [React hook form](https://www.react-hook-form.com).
 
@@ -107,8 +107,7 @@ métodos possíveis daquele elemento:
 const focusNewCommentaryInputRef = useRef<HTMLInputElement | null>(null);
 ```
 
-Uma ref apontada pro DOM sempre começa com null ou undefined, por que o React só coloca depois de montar o componente, portanto é importante colocar isso na tipagem também
-para evitar erros.
+Uma ref apontada para o DOM sempre começa com null ou undefined, porque o React só a preenche depois de montar o componente. Portanto, é importante especificar isso no tipo para evitar erros.
 
 #### Referências
 
