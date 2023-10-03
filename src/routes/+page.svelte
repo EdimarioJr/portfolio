@@ -1,8 +1,9 @@
 <script lang="ts">
 	import marca2 from '$lib/assets/marcas total-02.png';
 	import triviaImage from '$lib/assets/trivia-app.png';
+	import cinebuscaPrint from '$lib/assets/cinebusca-print.png';
 	import Footer from '$lib/components/footer.svelte';
-	import LocaleSwitcher from '$lib/components/localeSwitcher.svelte';
+
 	import Icon from '@iconify/svelte';
 	import { linear } from 'svelte/easing';
 	import { locale } from '$lib/i18n/translations';
@@ -79,6 +80,25 @@
 					>
 					<a rel="external" class="sitelink" href="https://trivia-app-inky.vercel.app">Ver o site</a
 					>
+				</article>
+			</div>
+			<div class="projects-card">
+				<img alt="cinebuscaAppPrint app print" src={cinebuscaPrint} />
+				<article>
+					<h3>Cinebusca app</h3>
+					<p>
+						Site de cinema com <strong>Next.js, Styled Components, Redux e RTK Query</strong> e
+						testado com
+						<strong>Jest e React Testing Library</strong>. Aplica conceitos como
+						<strong>Server Side Rendering</strong>
+						e <strong>Realtime</strong> para uma página de feed. Nesse app, o usuário pode se cadastrar,
+						ver filmes populares, buscar filmes, adicionar filmes na sua watchlist e fazer review sobre
+						os filmes. Back-end feito usando supabase.
+					</p>
+					<a rel="external" class="codigolink" href="https://github.com/EdimarioJr/cinebusca"
+						>Ver o código</a
+					>
+					<a rel="external" class="sitelink" href="https://cinebusca.vercel.app">Ver o site</a>
 				</article>
 			</div>
 		</div>
